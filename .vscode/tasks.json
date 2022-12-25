@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++.exe build active file",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g3",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-O0",
+                "-std=c++20",
+                "-Wshadow",
+                "-Wall",
+                "-Wno-sign-compare",
+                "-D_GLIBCXX_DEBUG",
+                "-D_GLIBCXX_DEBUG_PEDANTIC",
+                "-Wextra",
+                "-pedantic",
+                "-Wshadow",
+                "-Wfloat-equal",
+                "-Wconversion",
+                "-Wlogical-op",
+                "-Wduplicated-cond",
+                "-Wcast-qual",
+                "-Wcast-align",
+                "-D_FORTIFY_SOURCE=2",
+                "-fno-sanitize-recover",
+                "-fstack-protector-all",
+                "-Wformat=2",
+                // オーバーフロー検知
+                "-ftrapv",
+                "-fno-omit-frame-pointer",
+                //下記サニタイザ系統は，msys2で
+                //実装されてない．->linux使え
+                //"-fsanitize=address",
+                //"-fsanitize=undefined",
+                //" -Wshift-overflow=2",
+            ],
+            "options": {
+                "cwd": "C:\\msys64\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
